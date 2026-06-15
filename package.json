@@ -1,7 +1,7 @@
 {
   "name": "expo-ecommerce",
   "version": "1.0.0",
-  "description": "",
+  "description": "✨ Full-Stack E-Commerce App (Mobile + Admin + API) ✨",
   "main": "index.js",
   "engines": {
     "node": ">=20.0.0"
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/burakorkmez/expo-ecommerce.git"
+    "url": "git+https://github.com/Ghaidaa2011/expo-ecommerce.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ghaidaa",
   "type": "commonjs",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/burakorkmez/expo-ecommerce/issues"
+    "url": "https://github.com/Ghaidaa2011/expo-ecommerce/issues"
   },
-  "homepage": "https://github.com/burakorkmez/expo-ecommerce#readme"
+  "homepage": "https://github.com/Ghaidaa2011/expo-ecommerce#readme"
 }
