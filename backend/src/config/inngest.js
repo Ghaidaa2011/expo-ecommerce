@@ -7,8 +7,10 @@ export const inngest = new Inngest({ id: "ecommerce-app" });
 const syncUser = inngest.createFunction(
   { id: "sync-user" },
   { event: "clerk/user.created" },
-  async ({ event }) => {
-    await connectDB();
+  async ({ event , step}) => {
+    await step.run("connect-to-db", async () => {
+      await connectDB();
+    });
     const { id, email_addresses, first_name, last_name, image_url } = event.data;
 
     const newUser = {
@@ -20,18 +22,24 @@ const syncUser = inngest.createFunction(
       wishlist: [],
     };
 
-    await User.create(newUser);
+    await step.run("sync-user", async () => {
+      await User.create(newUser);
+    });
   }
 );
 
 const deleteUserFromDB = inngest.createFunction(
   { id: "delete-user-from-db" },
   { event: "clerk/user.deleted" },
-  async ({ event }) => {
-    await connectDB();
+  async ({ event, step }) => {
+    await step.run("connect-to-db", async () => {
+      await connectDB();
+    });
 
     const { id } = event.data;
-    await User.deleteOne({ clerkId: id });
+    await step.run("delete-user-from-db", async () => {
+      await User.deleteOne({ clerkId: id });
+    });
   }
 );
 
